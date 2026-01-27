@@ -169,7 +169,7 @@ http://localhost:porta
 
 A documentação completa do projeto está disponível na pasta `/docs`:
 
-- [Levantamento de Requisitos](docs/LR-versao1.1pdf)
+- [Levantamento de Requisitos](Levantamento-Requisitos/LR-versao2.pdf)
 - [Diagrama de Casos de Uso](docs/casos-de-uso.md) *(em desenvolvimento)*
 - [Modelo Entidade-Relacionamento](docs/mer.md) *(em desenvolvimento)*
 - [Manual do Usuário](docs/manual-usuario.md) *(em desenvolvimento)*
