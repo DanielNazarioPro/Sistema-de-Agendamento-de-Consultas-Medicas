@@ -53,13 +53,19 @@ Este sistema resolve esses problemas através de uma interface intuitiva e regra
 
 ## Regras de Negócio
 
-- **RN01:** Um médico não pode ter duas consultas no mesmo horário
-- **RN02:** Não é possível agendar consultas para datas passadas
-- **RN03:** Cancelamento deve ser feito com 24h de antecedência
-- **RN04:** Matrícula dos usuários deve ser única
-- **RN05:** Pacientes não têm acesso ao sistema
-- **RN06:** Recepcionistas não acessam dados de médicos
-- **RN07:** Médicos não acessam dados de recepcionistas
+- **RN01**:	Um médico não pode ter duas consultas agendadas no mesmo dia e horário (choque de horário).
+- **RN02**:	Não é possível agendar consultas para datas passadas.
+- **RN03**:	O paciente só pode cancelar a consulta com até 24 horas de antecedência.
+- **RN04**:	Matrícula dos usuários deve ser única.
+- **RN05**:	O paciente não deve ter acesso ao sistema de cadastro.
+- **RN06**:	A Recepcionista pode acessar somente o agendamento e consulta dos pacientes.
+- **RN07**:	O Médico não tem permissão para alterar os dados da Recepcionista, Administrador ou Paciente.
+- **RN08**:	Uma consulta deve ter duração máxima de até 30 minutos
+- **RN09**:	Um paciente pode ter no máximo 3 consultas agendadas simultaneamente.
+- **RN10**:	Consultas canceladas devem ficar registrados no histórico do paciente.
+- **RN11**:	O horário de funcionamento da clínica é das 8 h às 18 h (segunda a sexta)
+- **RN12**:	Um médico pode atender no máximo 16 pacientes por dia.
+
 
 ---
 
