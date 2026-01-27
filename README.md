@@ -214,8 +214,9 @@ Contribuições são bem-vindas! Para contribuir:
 **Daniel Nazário**
 
 - Estudante de Sistemas de Informação - UEA
--  LinkedIn: [linkedin](https://www.linkedin.com/in/danielnazariopro/)
-- Email: seu.email@exemplo.com
+-  LinkedIn: [Meu linkedin](https://www.linkedin.com/in/danielnazariopro/)
+- Email: [Meu e-mail](dmalzinha0221@gmail.com)
+- Telefone: (92) 98247-2041
 - GitHub: [@danielnazario](https://github.com/DanielNazarioPro)
 
 ---
