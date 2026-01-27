@@ -103,8 +103,8 @@ Este sistema resolve esses problemas através de uma interface intuitiva e regra
 
 1. **Clone o repositório**
 ```bash
-git clone https://github.com/seu-usuario/sistema-agendamento-consultas.git
-cd sistema-agendamento-consultas
+git clone [https://github.com/seu-usuario/sistema-agendamento-consultas.git](https://github.com/DanielNazarioPro/Sistema-de-Agendamento-de-Consultas-Medicas.git)
+cd sistema-de-agendamento-de-consultas-medicas
 ```
 
 2. **Configure o banco de dados**
@@ -169,7 +169,7 @@ http://localhost:porta
 
 A documentação completa do projeto está disponível na pasta `/docs`:
 
-- [Levantamento de Requisitos](docs/LR-versao1.pdf)
+- [Levantamento de Requisitos](docs/LR-versao1.1pdf)
 - [Diagrama de Casos de Uso](docs/casos-de-uso.md) *(em desenvolvimento)*
 - [Modelo Entidade-Relacionamento](docs/mer.md) *(em desenvolvimento)*
 - [Manual do Usuário](docs/manual-usuario.md) *(em desenvolvimento)*
