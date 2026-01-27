@@ -215,7 +215,7 @@ Contribuições são bem-vindas! Para contribuir:
 
 - Estudante de Sistemas de Informação - UEA
 -  LinkedIn: [Meu linkedin](https://www.linkedin.com/in/danielnazariopro/)
-- Email: [Meu e-mail]("https://mail.google.com/mail/?view=cm&fs=1&to=dmalzinha0221@gmail.com")
+- Email: [Meu e-mail](https://mail.google.com/mail/?view=cm&fs=1&to=dmalzinha0221@gmail.com)
 - Telefone: (92) 98247-2041
 - GitHub: [@danielnazario](https://github.com/DanielNazarioPro)
 
