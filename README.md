@@ -1,4 +1,4 @@
-# 🏥 Sistema de Agendamento de Consultas Médicas
+# Sistema de Agendamento de Consultas Médicas
 
 > Sistema web para gerenciamento de consultas médicas, desenvolvido como projeto acadêmico do curso de Sistemas de Informação da Universidade do Estado do Amazonas.
 
