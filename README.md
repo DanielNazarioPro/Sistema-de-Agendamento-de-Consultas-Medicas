@@ -103,7 +103,7 @@ Este sistema resolve esses problemas através de uma interface intuitiva e regra
 
 1. **Clone o repositório**
 ```bash
-git clone [https://github.com/seu-usuario/sistema-agendamento-consultas.git](https://github.com/DanielNazarioPro/Sistema-de-Agendamento-de-Consultas-Medicas.git)
+git clone https://github.com/DanielNazarioPro/Sistema-de-Agendamento-de-Consultas-Medicas.git
 cd sistema-de-agendamento-de-consultas-medicas
 ```
 
