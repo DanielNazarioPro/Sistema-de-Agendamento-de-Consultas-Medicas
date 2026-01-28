@@ -1,253 +1,195 @@
 # Sistema de Agendamento de Consultas Médicas
 
-> Sistema web para gerenciamento de consultas médicas, desenvolvido como projeto acadêmico do curso de Sistemas de Informação da Universidade do Estado do Amazonas.
+## Descrição
 
-## Sobre o Projeto
+Sistema web desenvolvido para automatizar o processo de agendamento de consultas em clínicas médicas. A aplicação permite o controle completo de agendas, gerenciamento de pacientes, médicos e oferece diferentes níveis de acesso para administradores, médicos e recepcionistas.
 
-O **Sistema de Agendamento de Consultas Médicas** foi desenvolvido para solucionar problemas comuns em clínicas e consultórios médicos, como conflitos de horários, dificuldades no gerenciamento de pacientes e falta de controle sobre cancelamentos e remarcações.
+## Objetivo
 
-### Problema de Negócio
+Substituir processos manuais de agendamento por uma solução informatizada que elimine conflitos de horário, centralize informações de pacientes e facilite o gerenciamento de consultas médicas.
 
-Foi identificado que muitos estabelecimentos de saúde não possuem um sistema eficiente de agendamento, enfrentando dificuldades em:
+## Funcionalidades Principais
 
--  **Criar** consultas para pacientes
--  **Ler/Recuperar** informações de agendamentos
--  **Atualizar** horários e remarcar consultas
--  **Deletar** dados de pacientes que cancelaram
+### Gestão de Usuários
+- Cadastro e manutenção de médicos, recepcionistas e administradores
+- Controle de acesso baseado em perfis de usuário
+- Sistema de autenticação com matrícula e senha
+- Recuperação de senha via email
 
-Este sistema resolve esses problemas através de uma interface intuitiva e regras de negócio bem definidas.
+### Agendamento de Consultas
+- Cadastro de consultas com validação automática de disponibilidade
+- Verificação de conflitos de horário
+- Controle de horários de funcionamento da clínica
+- Cancelamento e reagendamento de consultas
+- Restrição de cancelamento com antecedência mínima de 24 horas
 
----
+### Gestão de Pacientes
+- Cadastro completo de pacientes pela recepcionista
+- Histórico de consultas por paciente
+- Busca de pacientes por nome, matrícula ou CPF
+- Desativação automática de cadastros inativos
 
-## Funcionalidades
+### Controle de Agenda
+- Visualização de agenda diária, semanal e mensal
+- Identificação de horários disponíveis e ocupados
+- Confirmação de presença pelo médico
+- Registro automático de faltas de pacientes
 
-### Para Médicos
-- Visualizar agenda pessoal de consultas
-- Confirmar presença de pacientes
-- Acessar informações dos pacientes agendados
+### Especialidades Médicas
+- Cadastro de especialidades
+- Associação de médicos a especialidades
+- Busca de médicos por especialidade
 
-### Para Recepcionistas
-- Cadastrar novos pacientes
-- Agendar, remarcar e cancelar consultas
-- Gerenciar dados de pacientes
-- Visualizar agenda dos médicos
+### Relatórios
+- Consultas realizadas por período
+- Estatísticas de cancelamentos e faltas
+- Relatórios individuais por médico
 
-### Para Administradores
-- Cadastrar médicos e suas especialidades
-- Cadastrar recepcionistas
-- Gerenciar usuários do sistema
-- Controle total sobre cadastros
+### Auditoria
+- Registro de todas as ações críticas do sistema
+- Logs com data, hora e usuário responsável
+- Rastreabilidade completa de operações
 
----
+## Perfis de Usuário
 
-## Atores do Sistema
+### Administrador
+Responsável pela gestão completa do sistema. Pode cadastrar e gerenciar médicos, recepcionistas e outros administradores. Possui acesso a relatórios gerenciais e logs de auditoria.
 
-| Ator | Responsabilidades |
-|------|-------------------|
-| **Administrador** | Gerencia cadastros de médicos e recepcionistas |
-| **Médico** | Visualiza agenda e confirma consultas |
-| **Recepcionista** | Gerencia agendamentos e cadastro de pacientes |
-| **Paciente** | Recebe atendimento (não acessa o sistema) |
+### Médico
+Visualiza suas próprias consultas agendadas, confirma presença de pacientes, registra faltas e acessa histórico de pacientes atendidos. Pode alterar seus próprios dados cadastrais.
 
----
+### Recepcionista
+Realiza o atendimento ao público, gerencia cadastro de pacientes, agenda consultas, efetua cancelamentos e reagendamentos. Visualiza a agenda dos médicos para facilitar o agendamento.
+
+### Paciente
+Não possui acesso direto ao sistema. Todas as operações relacionadas ao paciente são realizadas pela recepcionista.
 
 ## Regras de Negócio
 
-- **RN01**:	Um médico não pode ter duas consultas agendadas no mesmo dia e horário (choque de horário).
-- **RN02**:	Não é possível agendar consultas para datas passadas.
-- **RN03**:	O paciente só pode cancelar a consulta com até 24 horas de antecedência.
-- **RN04**:	Matrícula dos usuários deve ser única.
-- **RN05**:	O paciente não deve ter acesso ao sistema de cadastro.
-- **RN06**:	A Recepcionista pode acessar somente o agendamento e consulta dos pacientes.
-- **RN07**:	O Médico não tem permissão para alterar os dados da Recepcionista, Administrador ou Paciente.
-- **RN08**:	Uma consulta deve ter duração máxima de até 30 minutos
-- **RN09**:	Um paciente pode ter no máximo 3 consultas agendadas simultaneamente.
-- **RN10**:	Consultas canceladas devem ficar registrados no histórico do paciente.
-- **RN11**:	O horário de funcionamento da clínica é das 8 h às 18 h (segunda a sexta)
-- **RN12**:	Um médico pode atender no máximo 16 pacientes por dia.
+### Horários e Agendamento
+- Cada consulta tem duração padrão de 30 minutos
+- Horário de funcionamento: Segunda a sexta, das 8h às 18h
+- Um médico pode atender no máximo 16 pacientes por dia
+- Não é permitido agendar consultas em datas passadas
+- Um médico não pode ter duas consultas no mesmo horário
 
+### Pacientes
+- Cada paciente pode ter no máximo 3 consultas agendadas simultaneamente
+- Consultas canceladas permanecem no histórico do paciente
+- Cadastros inativos por 12 meses são automaticamente desativados
 
----
+### Cancelamento
+- Consultas só podem ser canceladas com 24 horas de antecedência
+- Todas as consultas canceladas são registradas no histórico
 
-## Tecnologias Utilizadas
+### Confirmação
+- Consultas não confirmadas até 1 hora após o horário agendado são marcadas automaticamente como falta do paciente
 
-### Backend
-- **Linguagem:** [A definir - PHP/Python/Java/Node.js]
-- **Banco de Dados:** [A definir - MySQL/PostgreSQL/MongoDB]
-- **Framework:** [A definir]
+## Requisitos Técnicos
 
-### Frontend
-- **HTML5** - Estrutura
-- **CSS3** - Estilização
-- **JavaScript** - Interatividade
+### Segurança
+- Senhas armazenadas com criptografia hash
+- Bloqueio temporário após 3 tentativas incorretas de login
+- Sessões expiram após 30 minutos de inatividade
+- Matrícula única para cada usuário
+- Registro de logs para todas as ações críticas
 
-### Ferramentas
-- **Git** - Controle de versão
-- **GitHub** - Repositório remoto
-- **[Editor]** - Desenvolvimento
+### Performance
+- Tempo de resposta máximo de 3 segundos para consultas
+- Suporte para até 100 usuários simultâneos
 
----
+### Disponibilidade
+- Disponibilidade mínima de 99% durante horário comercial
+- Backup automático diário do banco de dados
 
-## Instalação e Configuração
+### Compatibilidade
+- Funciona em navegadores Chrome, Firefox e Edge
+- Interface responsiva para desktop, tablets e smartphones
+- Aplicação web acessível via navegador
 
-### Pré-requisitos
+### Usabilidade
+- Interface intuitiva e de fácil navegação
+- Mensagens de erro em português claro
+- Formulários com validação de dados
 
-```bash
-# Certifique-se de ter instalado:
-- [Linguagem/Runtime necessário]
-- [Banco de dados]
-- Git
-```
+## Fluxo Básico de Uso
 
-### Passo a Passo
+### 1. Configuração Inicial
+O administrador acessa o sistema e cadastra as especialidades médicas, médicos e recepcionistas que utilizarão o sistema.
 
-1. **Clone o repositório**
-```bash
-git clone https://github.com/DanielNazarioPro/Sistema-de-Agendamento-de-Consultas-Medicas.git
-cd sistema-de-agendamento-de-consultas-medicas
-```
+### 2. Cadastro de Pacientes
+A recepcionista cadastra novos pacientes conforme chegam à clínica, incluindo dados pessoais e informações de contato.
 
-2. **Configure o banco de dados**
-```bash
-# Crie o banco de dados
-# Execute o script de criação das tabelas
-```
+### 3. Agendamento
+A recepcionista busca o paciente, seleciona a especialidade desejada, escolhe o médico e visualiza os horários disponíveis na agenda. Ao selecionar data e horário, o sistema valida se não há conflitos e confirma o agendamento.
 
-3. **Configure as variáveis de ambiente**
-```bash
-# Copie o arquivo de exemplo
-cp .env.example .env
+### 4. Confirmação de Consulta
+No dia da consulta, o médico acessa o sistema, visualiza sua agenda do dia e confirma a presença do paciente após o atendimento. Caso o paciente não compareça, o médico registra a falta.
 
-# Edite com suas configurações
-```
+### 5. Cancelamento ou Reagendamento
+Se necessário, a recepcionista pode cancelar ou reagendar consultas, respeitando o prazo mínimo de 24 horas de antecedência.
 
-4. **Execute o projeto**
-```bash
-# Comando para iniciar o servidor
-```
+### 6. Consulta de Histórico
+Médicos e recepcionistas podem consultar o histórico completo de consultas de um paciente, incluindo consultas realizadas, canceladas e faltas.
 
-5. **Acesse no navegador**
-```
-http://localhost:porta
-```
+### 7. Geração de Relatórios
+Administradores e médicos podem gerar relatórios de consultas por período, visualizar estatísticas e acompanhar indicadores de atendimento.
 
----
-
-## Estrutura do Banco de Dados
+## Estrutura de Dados
 
 ### Principais Entidades
+- Usuários: Administradores, Médicos e Recepcionistas
+- Pacientes
+- Especialidades Médicas
+- Consultas
+- Logs de Auditoria
 
-- **Pacientes** (id, nome, email, telefone)
-- **Médicos** (id, nome, especialidade, matricula)
-- **Recepcionistas** (id, nome, matricula)
-- **Consultas** (id, paciente_id, medico_id, data, hora_inicio, hora_fim, status, descricao)
-- **Usuários** (id, matricula, senha, tipo, ativo)
+### Relacionamentos
+- Médicos possuem uma ou mais especialidades
+- Consultas relacionam pacientes e médicos
+- Todos os usuários possuem matrícula única
+- Logs registram ações de usuários no sistema
 
----
+## Validações do Sistema
 
-## Roadmap
+### Validações de Agendamento
+- Verifica se o horário está dentro do expediente da clínica
+- Valida se o médico está disponível no horário solicitado
+- Confirma se a data não é passada
+- Verifica se o paciente não excedeu o limite de consultas agendadas
 
-### Versão 1.0 (Atual)
-- [x] Levantamento de Requisitos
-- [ ] Modelagem do Banco de Dados
-- [ ] Desenvolvimento do Backend
-- [ ] Desenvolvimento do Frontend
-- [ ] Testes Unitários
-- [ ] Implantação
+### Validações de Cadastro
+- Garante unicidade de matrícula
+- Valida formato de email
+- Verifica campos obrigatórios
+- Impede exclusão de administradores se restarem menos de 3 ativos
 
-### Futuras Melhorias
-- [ ] Sistema de notificações por e-mail/SMS
-- [ ] Aplicativo mobile para pacientes
-- [ ] Relatórios e dashboards
-- [ ] Integração com calendários externos
-- [ ] Histórico médico dos pacientes
-- [ ] Sistema de prontuário eletrônico
+### Validações de Cancelamento
+- Verifica se a consulta existe e está agendada
+- Confirma se o prazo de 24 horas está sendo respeitado
+- Registra motivo do cancelamento
 
----
+## Benefícios do Sistema
 
-## Documentação
+- Eliminação de conflitos de horário
+- Redução de erros no agendamento
+- Histórico completo e organizado de pacientes
+- Agilidade no atendimento da recepção
+- Melhor aproveitamento da agenda médica
+- Controle estatístico de consultas
+- Rastreabilidade de todas as operações
+- Acesso rápido a informações de pacientes
+- Automatização de processos administrativos
 
-A documentação completa do projeto está disponível na pasta `/docs`:
+## Documentação Adicional
 
-- [Levantamento de Requisitos](Levantamento-Requisitos/LR-versao2.pdf)
-- [Diagrama de Casos de Uso](docs/casos-de-uso.md) *(em desenvolvimento)*
-- [Modelo Entidade-Relacionamento](docs/mer.md) *(em desenvolvimento)*
-- [Manual do Usuário](docs/manual-usuario.md) *(em desenvolvimento)*
-
----
-
-## Testes
-
-```bash
-# Executar testes unitários
-npm test
-
-# Executar testes de integração
-npm run test:integration
-
-# Cobertura de código
-npm run test:coverage
-```
-
----
-
-## 🤝 Como Contribuir
-
-Contribuições são bem-vindas! Para contribuir:
-
-1. Faça um **Fork** do projeto
-2. Crie uma **branch** para sua feature (`git checkout -b feature/MinhaFeature`)
-3. **Commit** suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Faça **Push** para a branch (`git push origin feature/MinhaFeature`)
-5. Abra um **Pull Request**
-
-### Padrões de Código
-- Siga as convenções de código da linguagem utilizada
-- Documente funções e métodos complexos
-- Escreva testes para novas funcionalidades
-- Mantenha commits claros e descritivos
-
----
+Para informações detalhadas sobre requisitos, regras de negócio e especificações técnicas, consulte o documento "Levantamento de Requisitos" (Levantamento-Requisitos/LR-versao3.pdf).
 
 ## Autor
 
-**Daniel Nazário**
+Daniel Nazário
+Sistemas de Informação - Universidade do Estado do Amazonas
 
-- Estudante de Sistemas de Informação - UEA
--  LinkedIn: [Meu linkedin](https://www.linkedin.com/in/danielnazariopro/)
-- Email: [Meu e-mail](https://mail.google.com/mail/?view=cm&fs=1&to=dmalzinha0221@gmail.com)
-- Telefone: (92) 98247-2041
-- GitHub: [@danielnazario](https://github.com/DanielNazarioPro)
+## Versão
 
----
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-## Agradecimentos
-
-- Universidade do Estado do Amazonas (UEA)
-- Professor orientador Marcio Palheta
-- Colegas de curso que contribuíram com ideias e feedback
-
----
-
-## Suporte
-
-Encontrou algum problema? Tem alguma sugestão?
-
-- 🐛 Abra uma [Issue](https://github.com/seu-usuario/sistema-agendamento-consultas/issues)
-- 💬 Entre em contato: dmalzinha0221@gmail.com
-
----
-
-<div align="center">
-
-### ⭐ Se este projeto foi útil para você, considere dar uma estrela!
-
-**Desenvolvido com por Daniel Nazário**
-
-</div>
+Versão 4.0 - Janeiro de 2026
