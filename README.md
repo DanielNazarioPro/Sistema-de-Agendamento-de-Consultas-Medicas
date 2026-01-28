@@ -183,7 +183,7 @@ Administradores e médicos podem gerar relatórios de consultas por período, vi
 
 ## Documentação Adicional
 
-Para informações detalhadas sobre requisitos, regras de negócio e especificações técnicas, consulte o documento "Levantamento de Requisitos" (Levantamento-Requisitos/LR-versao3.pdf).
+Para informações detalhadas sobre requisitos, regras de negócio e especificações técnicas, consulte o documento ("Levantamento de Requisitos")[Levantamento-Requisitos/LR-versao3.pdf].
 
 ## Autor
 
