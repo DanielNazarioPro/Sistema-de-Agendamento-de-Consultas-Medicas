@@ -184,6 +184,12 @@ Administradores e médicos podem gerar relatórios de consultas por período, vi
 ## Documentação Adicional
 
 Para informações detalhadas sobre requisitos, regras de negócio e especificações técnicas, consulte o documento [Levantamento de Requisitos](Levantamento-Requisitos/LR-versao3.pdf).
+Os próximos passos são:
+1) Fazer a Modelagem lógica na UML para fazer que os dados vejam claros, para ficar mais fácil de desenvolver a Modelagem Relacional.
+2) Realizar o Detalhamento de Caso de Uso, para quando for fazer o projeto back-end ou front-end, definindo de maneira clara, quais são os atores que vão relacionar com o dados do sistema e quais são as respostas que o sistema deve dar para ter mais clareza, definindo responsabilidades, respeitando as regras de négocios, fluxo principal, fluxo de exeção. E, o que pode acontecer dentro do sistema ou o que não pode acontecer dentro do limite do sistema.
+3) Escolher uma arquitetura de desenvolvimento, como um estudante de sistema de informação isso é muito importante.
+4) Desenvolver algoritmo do front-end definindo quais são as linguagens.
+5) Desenvolver algoritmo do back-end definindo as suas linguagens.
 
 ## Autor
 
